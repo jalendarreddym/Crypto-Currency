@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results for {{ company }}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .card {
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .result-item {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Results for {{ company }} using {{ model }} Model</h1>
+        </div>
+        <div class="card-body">
+            {% if model == 'LSTM' %}
+                <p class="result-item"><strong>LSTM R2 Score:</strong> {{ scores['LSTM R2 Score'] }}</p>
+                <p class="result-item"><strong>LSTM Accuracy:</strong> {{ (scores['LSTM R2 Score'] * 100)|round(3) }}%</p>
+            {% elif model == 'Random Forest' %}
+                <p class="result-item"><strong>Random Forest R2 Score:</strong> {{ scores['Random Forest R2 Score'] }}</p>
+                <p class="result-item"><strong>Random Forest Accuracy:</strong> {{ (scores['Random Forest R2 Score'] * 100)|round(3) }}%</p>
+            {% elif model == 'XGBoost' %}
+                <p class="result-item"><strong>XGBoost R2 Score:</strong> {{ scores['XGBoost R2 Score'] }}</p>
+                <p class="result-item"><strong>XGBoost Accuracy:</strong> {{ (scores['XGBoost R2 Score'] * 100)|round(3) }}%</p>
+            {% endif %}
+            <a href="/get_image/{{ company }}_{{ model }}_Model_Predictions.png" class="btn btn-primary" target="_blank">View Image</a>
+        </div>        
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

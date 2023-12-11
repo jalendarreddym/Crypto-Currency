@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #B2E9E2 ; /* Change this to your preferred color or add a background image */
+            background-image: url('background-image.jpg'); /* Replace 'background-image.jpg' with the path to your image */
+            background-size: cover;
+            padding-top: 50px;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 10px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            background-color: #2c3e50; /* Dark background color */
+            color: Black; /* Light text color */
+            transform: rotateY(180deg);
+        }
+        .centered-card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 300px;  /* Set the width to match the .flip-card width */
+            height: 200px;  /* Set the height to match the .flip-card height */
+            background-color: #FFFFFF;  /* Set the background color if needed */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  /* Optional: add a shadow for a better visual effect */
+        }
+        .full-row {
+            width: 100%;
+        }
+        .full-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: #FFFFFF;
+            box-shadow: none;
+            transition: transform 0.3s;
+        }
+        .flip-card.full-page {
+            z-index: 2000;  /* Ensure the enlarged card is above other elements */
+            overflow-y: auto;  /* Allow vertical scrolling if content is larger than card */
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background-color: #0056b3;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        input[type=submit], select {
+            margin-top: 10px;
+        }
+        .view-more {
+            display: none;  /* Initially hide the View More button */
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            position: absolute; /* Position the button at the bottom of the card */
+            bottom: 10px;
+            right: 10px;
+        }
+        .flip-card-back .card-body {
+            overflow: hidden; /* Hide the overflowing content */
+            max-height: 150px; /* Set a max height for the card content */
+            position: relative; /* Required for 'view-more' button positioning */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container text-center mb-5">
+    <h1 class="display-4">Cryptocurrency Price Prediction Using Machine Learning Techniques</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Section 1 -->
+        <div class="col-md-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Libraries Used in the Project</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>The foundation of our exploration is laid by incorporating a diverse set of Python libraries. From data manipulation tools like pandas and numpy, we transition into the visual realm with matplotlib and seaborn. The process is complemented by data extraction utilities such as yfinance and pandas_datareader, while the analytical backbone is provided by machine learning modules from sklearn and deep learning capabilities from keras.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 2 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 2 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Preprocessing</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>Harnessing the power of the yfinance library, data for a set of cryptocurrencies is fetched for a defined timeline. Each cryptocurrency's data is stored in an individual DataFrame, with all of them being concatenated into a single unified DataFrame for ease of analysis. The data is essential for understanding the historical behavior of these cryptocurrencies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 3 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 3 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Data Visualization</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>Data visualization is paramount for comprehending any dataset. The closing prices and trading volumes of the cryptocurrencies are plotted to get a visual sense of their historical performance. Such visualizations allow for quick insights into trends, volatilities, and anomalies.</p>
+                                <h3>Closing Price</h3>
+                                <p>This graph provides a time-series view of the closing prices of the selected cryptocurrency. The trends give insight into the bullish or bearish phases of the currency, helping investors make informed decisions.</p>
+                                <a href="/get_image/Bitcoin_Historical_Closing_Prices.png" target="_blank" class="btn btn-primary">Bitcoin</a>
+                                <a href="/get_image/Ethereum_Historical_Closing_Prices.png" target="_blank" class="btn btn-primary">Ethereum</a>
+                                <a href="/get_image/Tether_Historical_Closing_Prices.png" target="_blank" class="btn btn-primary">Tether</a>
+                                <a href="/get_image/Binance Coin_Historical_Closing_Prices.png" target="_blank" class="btn btn-primary">Binance Coin</a>
+                                <a href="/get_image/XRP_Historical_Closing_Prices.png" target="_blank" class="btn btn-primary">XRP</a>
+                                <h3>Sales Volume</h3>
+                                <p>The sales volume graph showcases the number of coins traded over time. A spike can indicate significant market activity or news-driven events, while low volumes might suggest a lack of interest or market movement.</p>
+                                <a href="/get_image/Sales_Volume_Bitcoin.png" target="_blank" class="btn btn-primary">Bitcoin</a>
+                                <a href="/get_image/Sales_Volume_Ethereum.png" target="_blank" class="btn btn-primary">Ethereum</a>
+                                <a href="/get_image/Sales_Volume_Tether.png" target="_blank" class="btn btn-primary">Tether</a>
+                                <a href="/get_image/Sales_Volume_Binance Coin.png" target="_blank" class="btn btn-primary">Binance Coin</a>
+                                <a href="/get_image/Sales_Volume_XRP.png" target="_blank" class="btn btn-primary">XRP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Section 4 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 4 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Feature Engineering</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>Beyond the raw data, additional features can enhance modeling performance. In this segment, moving averages over different periods (like 10, 20, and 50 days) are calculated. Moving averages smooth out price data to create a single flowing line, which makes it easier to identify the direction of the trend.</p>
+                                <h3>Moving Averages</h3>
+                                <p>The chart juxtaposes the actual closing prices with their respective moving averages. It's a tool to spot potential buy/sell signals. For instance, when a short-term average crosses above a long-term average, it might indicate an upward trend.</p>
+                                <a href="/get_image/Moving_Averages_Bitcoin.png" target="_blank" class="btn btn-primary">Bitcoin</a>
+                                <a href="/get_image/Moving_Averages_Ethereum.png" target="_blank" class="btn btn-primary">Ethereum</a>
+                                <a href="/get_image/Moving_Averages_Tether.png" target="_blank" class="btn btn-primary">Tether</a>
+                                <a href="/get_image/Moving_Averages_Binance Coin.png" target="_blank" class="btn btn-primary">Binance Coin</a>
+                                <a href="/get_image/Moving_Averages_XRP.png" target="_blank" class="btn btn-primary">XRP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 5 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 5 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Daily Return Analysis</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p> Understanding daily price fluctuations is pivotal. This section calculates and visualizes daily returns, shedding light on the volatility and stability of each cryptocurrency. Such insights can guide risk assessment and investment strategies.</p>
+                                <h3>Daily Returns Over Time</h3>
+                                <p>This visualization traces the percentage change in the value of the cryptocurrency day by day. It's an immediate snapshot of volatility, with larger swings indicating higher volatility.</p>
+                                <a href="/get_image/Daily_Returns_Over_Time_Bitcoin.png" target="_blank" class="btn btn-primary">Bitcoin</a>
+                                <a href="/get_image/Daily_Returns_Over_Time_Ethereum.png" target="_blank" class="btn btn-primary">Ethereum</a>
+                                <a href="/get_image/Daily_Returns_Over_Time_Tether.png" target="_blank" class="btn btn-primary">Tether</a>
+                                <a href="/get_image/Daily_Returns_Over_Time_Binance Coin.png" target="_blank" class="btn btn-primary">Binance Coin</a>
+                                <a href="/get_image/Daily_Returns_Over_Time_XRP.png" target="_blank" class="btn btn-primary">XRP</a>
+                                <h3>Histogram of Daily Returns</h3>
+                                <p>The histogram offers a distribution view of returns. It can reveal how often large swings occur and if they lean towards gains or losses.</p>                             
+                                <a href="/get_image/Histogram_of_Daily_Returns_Bitcoin.png" target="_blank" class="btn btn-primary">Bitcoin</a>
+                                <a href="/get_image/Histogram_of_Daily_Returns_Ethereum.png" target="_blank" class="btn btn-primary">Ethereum</a>
+                                <a href="/get_image/Histogram_of_Daily_Returns_Tether.png" target="_blank" class="btn btn-primary">Tether</a>
+                                <a href="/get_image/Histogram_of_Daily_Returns_Binance Coin.png" target="_blank" class="btn btn-primary">Binance Coin</a>
+                                <a href="/get_image/Histogram_of_Daily_Returns_XRP.png" target="_blank" class="btn btn-primary">XRP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 6 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 6 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Correlation Analysis</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>Cryptocurrencies don't exist in isolation. This section examines the interplay between different cryptocurrencies by analyzing the correlation of their daily returns and closing prices. Understanding these relationships can help in constructing diversified portfolios.</p>
+                                <h3>Correlation of Cryptocurrency Daily Returns</h3>
+                                <p>This heatmap illuminates how daily returns of one cryptocurrency relate to another. High positive correlation means they tend to move in tandem, while negative correlation indicates they move in opposite directions.</p>                             
+                                <a href="/get_image/Correlation_Daily_Returns.png" target="_blank" class="btn btn-primary">Daily Returns Heatmap</a>
+                                <h3>Correlation of Cryptocurrency Closing Prices </h3>
+                                <p>This heatmap focuses on the closing prices. It provides insights into the long-term relationships between the cryptocurrencies.</p>                             
+                                <a href="/get_image/Correlation_Closing_Prices.png" target="_blank" class="btn btn-primary">Closing Price Heatmap</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Section 7 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 7 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Risk and Expected Return</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>Every investment carries risk and potential returns. This section visualizes the trade-off between the expected return and risk for each cryptocurrency. It aids investors in aligning their choices with their risk appetite.</p>
+                                <h3>Risk vs Expected Return </h3>
+                                <p>The scatter plot positions each cryptocurrency based on its risk and potential return. Ideally, an investor seeks coins that offer high returns for a given level of risk.</p>                             
+                                <a href="/get_image/Risk_vs_Expected_Return.png" target="_blank" class="btn btn-primary">Risk and Expected Image</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 8 -->
+        <div class="col-md-4">
+            <!-- ... similar block for section 8 ... -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Machine Learning Models for Prediction</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="card">
+                            <div class="card-body">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p>To forecast future prices, three predictive models are employed: LSTM (a deep learning model adept at sequences), Random Forest (an ensemble learning method), and XGBoost (a gradient boosting framework). Each model's performance is visualized to discern its accuracy.</p>
+                                <h3>LSTM Predictions </h3>
+                                <p>The LSTM model's predictions are plotted against actual prices. LSTMs are known for their ability to remember long-term patterns, making them suitable for time-series data like stock prices.</p>                             
+                                <h3>Random Forest Predictions  </h3>
+                                <p>Random Forests build multiple decision trees to improve prediction accuracy. This chart contrasts its predictions with the real prices.</p>                             
+                                <h3>XGBoost Predictions  </h3>
+                                <p>XGBoost, an optimized gradient boosting algorithm, is renowned for its performance. The graph illustrates how its predictions fare against the actual prices.</p>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <form action="/get_results" method="post">
+        <label for="company">Select Company:</label>
+        <select id="company" name="company">
+            {% for company in companies %}
+            <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="model">Select Model:</label>
+        <select id="model" name="model">
+            {% for model in models %}
+            <option value="{{ model }}">{{ model }}</option>
+            {% endfor %}
+        </select>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <form action="/show_all_models" method="get">
+        <input type="submit" value="Show All ML Models">
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('<button class="close-button">></button>').appendTo('.flip-card-back .card-body').on('click', function(e) {
+            e.stopPropagation();
+            var card = $(this).closest('.flip-card');
+            var cardBody = card.find('.card-body');
+    
+            if(card.hasClass('full-page')) {
+                // If the card is currently expanded, minimize it and set the max-height back to 150px
+                card.removeClass('full-page');
+                cardBody.css('max-height', '150px');
+            } else {
+                // If the card is minimized, expand it and set the max-height to none to show the whole content
+                card.addClass('full-page');
+                cardBody.css('max-height', 'none');
+            }
+    
+            $('.flip-card').not(card).toggle();
+        });
+    });
+</script>
+</body>
+</html>
